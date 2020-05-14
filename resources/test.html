@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src='viz.js'></script>
+    <script src='full.render.js'></script>
+
+    <style type="text/css">
+        #mymodel {
+            width: 880px;
+            height: 880px;
+        }
+        /*#mymodel svg {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+        } */  
+    </style>
+</head>
+<body>
+    <div id="mymodel"></div>
+    <script>
+        function setModel(model) {
+            var viz = new Viz();
+  
+            viz.renderSVGElement(model)
+                .then(function(element) {
+                    document.getElementById("mymodel").appendChild(element);
+                })
+                .catch(error => {
+                    // Create a new Viz instance (@see Caveats page for more info)
+                    viz = new Viz();
+
+                    // Possibly display the error
+                    console.error(error);
+            });
+        }
+
+        //setModel('digraph { size="5" ratio = "fill" a -> b; }');
+    </script>
+</body>
+</html>
