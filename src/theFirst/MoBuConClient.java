@@ -167,6 +167,7 @@ public class MoBuConClient extends GridPane implements MouseListener{
 		AnchorPane.setTopAnchor(swingNode1, 0.0);
 		AnchorPane.setLeftAnchor(swingNode1, 0.0);
 		AnchorPane.setRightAnchor(swingNode1, 0.0);
+		instancesList.getSelectionModel().clearSelection();
         instancesList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<InstanceInfo>() {
 			@Override
 			public void changed(ObservableValue<? extends InstanceInfo> arg0, InstanceInfo arg1, InstanceInfo arg2) {
@@ -549,7 +550,6 @@ public class MoBuConClient extends GridPane implements MouseListener{
                     }
                     if (selected.equals(piID)) {
                         roundedPanelHealth.removeAll();
-                        System.out.println("Hereeeee!!");
                         roundedPanelHealth.add((FluentChartStandardPanel) healthGraphs.get(selected));
                         diagnosticsList.setModel(new ViolationListModel((Vector) violationsModels.get(selected)));
                     }
