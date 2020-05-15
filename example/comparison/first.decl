@@ -1,0 +1,22 @@
+activity A
+activity B
+activity C
+activity D
+
+x: integer between 0 and 10
+
+bind A: x
+bind B: x
+bind C: x
+bind D: x
+
+Response[A, B]|A.x = 3| T.x = 3|
+RespondedExistence[B, C]|A.x = 3| T.x = 3|
+Response[C, D]|A.x = 3| T.x = 3|
+NotResponse[D, B]|A.x = 3| T.x = 3|
+
+
+
+
+
+

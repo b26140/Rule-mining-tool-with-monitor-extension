@@ -1,0 +1,16 @@
+activity ApplyForTrip
+activity BookTransport
+activity BookAccommodation
+activity CollectTickets
+activity ApproveApplication
+
+
+Type: Car, Plane, Train, Bus
+Price: float between 0 and 100
+
+bind CollectTickets: Price
+bind BookTransport: Type
+bind BookAccommodation: Price
+
+
+AlternateResponse[BookTransport, CollectTickets]| A.Type is Bus| T.Price<30 |

@@ -1,0 +1,17 @@
+activity ApplyForTrip
+activity BookTransport
+activity BookAccommodation
+activity CollectTickets
+activity ApproveApplication
+
+Type: Car, Plane, Train, Bus
+Price: float between 0 and 100
+
+bind CollectTickets: Price
+bind BookTransport: Type
+bind BookAccommodation: Price
+
+NotRespondedExistence[BookAccommodation A, CollectTickets T]| A.Price > 20|T.Price > 30|
+Response[BookTransport A, BookTransport T]| A.Type is Bus|T.Type is not Bus|
+Response[BookTransport A, BookAccommodation T]| A.Type is not Bus| T.Price > 20|
+Response[BookTransport A, CollectTickets T]| A.Type is Bus|T.Price > 30|

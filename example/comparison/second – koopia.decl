@@ -1,0 +1,17 @@
+activity A
+activity B
+activity C
+activity D
+
+Type: Car, Bus
+
+bind A: Type
+bind B: Type
+bind C: Type
+bind D: Type
+
+Response[A, B]||same Type|
+Response[C, B]||same Type|
+ChainResponse[B, D]||same Type|
+NotResponse[D, B]||different Type|
+
